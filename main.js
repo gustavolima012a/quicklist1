@@ -24,6 +24,9 @@ function showItemsList(){
     const sectionList = document.querySelector(".list")
     sectionList.innerHTML = "" // limpa antes de exibir
 
+
+    items.sort((itemA, itemB) => Number(itemA.checked) - Number(itemB.checked))
+
     items.forEach((item, index) => {
         sectionList.innerHTML += `
         <div class="item">
