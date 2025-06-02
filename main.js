@@ -1,4 +1,4 @@
-const items = []
+let items = []
 
 function addItem(){
     const itemName = document.querySelector("#item").value
@@ -40,6 +40,8 @@ function showItemsList(){
         </div>
         `
     })  
+
+    localStorage.setItem("items", JSON.stringify(items))
 }
 
 
@@ -69,3 +71,14 @@ function removeItem(itemName){
 function addHideWarningClass(){
     document.querySelector(".warning").classList.add("hide-warning")
 }
+
+function verifylocalStoregeItems(){
+    const localStorageItems = localStorege.getItem("items")
+
+    if(localStorageItems){
+        items = JSON.parse(localStorageItems)
+        showItemsList()
+    }
+}
+
+verifylocalStoregeItems()
